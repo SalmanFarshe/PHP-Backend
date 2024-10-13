@@ -16,3 +16,47 @@
     echo $y;
     echo $z;
 ?>
+
+<?php
+    # variable scope in php
+    // global
+    $x = 45;
+    
+    // local
+    function local()
+    {
+        $x = 50;
+    }
+    local();
+    ?>
+        <br>
+    <?php
+    // global from local 
+    $x = 5;
+    function myTest() {
+        global $x;
+        $y = $x;
+    }
+
+    // static
+    function myTest1() {
+        static $a = 0;
+        echo $a;
+        $a++;
+    }
+    function myTest2() {
+        $b = 0;
+        echo $b;
+        $b++;
+    }
+    // for static keyword the variable will changes each time and output 0 1 2 otherwise 0 0 0
+    myTest1();
+    myTest1();
+    myTest1();
+    ?>
+        <br>
+    <?php
+    myTest2();
+    myTest2();
+    myTest2();
+?>
